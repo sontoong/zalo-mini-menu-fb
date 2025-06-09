@@ -20,7 +20,7 @@ const Promotion = () => {
               <img
                 src={BannerImg}
                 className="size-full object-cover object-top"
-                style={{ objectPosition: "0 -25px" }}
+                style={{ objectPosition: "0 -75px" }}
               />
             </div>
           </SwiperSlide>

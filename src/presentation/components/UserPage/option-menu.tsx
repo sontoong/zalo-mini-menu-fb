@@ -5,6 +5,7 @@ import OrderHistoryIconBlue from "../../static/order-history-icon-blue.png";
 import LocationIconBlue from "../../static/location-icon-blue.png";
 import OAIconBlue from "../../static/OA-icon-blue.png";
 import ExportIconBlue from "../../static/export-icon-blue.png";
+import CurrentLocationIconBlue from "../../static/current-location-icon-blue.png";
 import { Switch } from "../common/switch";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const OptionMenu = () => {
     <div className="flex flex-col">
       {/* Account info */}
       <div
-        className="border-stroke1a flex items-center justify-between border-b p-[16px]"
+        className="flex items-center justify-between border-b border-stroke1a p-[16px]"
         onClick={() => navigate("/profile/account")}
       >
         <div className="flex items-center gap-[12px]">
@@ -28,9 +29,28 @@ const OptionMenu = () => {
           <img src={ChevronRight} alt="" className="size-full object-cover" />
         </div>
       </div>
-      {/* Order history */}
+      {/* User Location List */}
       <div
-        className="border-stroke1a flex items-center justify-between border-b p-[16px]"
+        className="flex items-center justify-between border-b border-stroke1a p-[16px]"
+        onClick={() => navigate("/user-location-list")}
+      >
+        <div className="flex items-center gap-[12px]">
+          <div className="size-[24px]">
+            <img
+              src={CurrentLocationIconBlue}
+              alt=""
+              className="size-full object-cover"
+            />
+          </div>
+          <div className="text-sm font-normal">Địa chỉ của tôi</div>
+        </div>
+        <div className="size-[20px]">
+          <img src={ChevronRight} alt="" className="size-full object-cover" />
+        </div>
+      </div>
+      {/* Orders History */}
+      <div
+        className="flex items-center justify-between border-b border-stroke1a p-[16px]"
         onClick={() => navigate("/order-history")}
       >
         <div className="flex items-center gap-[12px]">
@@ -47,9 +67,9 @@ const OptionMenu = () => {
           <img src={ChevronRight} alt="" className="size-full object-cover" />
         </div>
       </div>
-      {/* Location */}
+      {/* Store Location */}
       <div
-        className="border-stroke1a flex items-center justify-between border-b p-[16px]"
+        className="flex items-center justify-between border-b border-stroke1a p-[16px]"
         onClick={() => navigate("/store-location")}
       >
         <div className="flex items-center gap-[12px]">
@@ -67,7 +87,7 @@ const OptionMenu = () => {
         </div>
       </div>
       {/* Follow OA */}
-      <div className="border-stroke1a flex items-center justify-between border-b p-[16px]">
+      <div className="flex items-center justify-between border-b border-stroke1a p-[16px]">
         <div className="flex items-center gap-[12px]">
           <div className="size-[24px]">
             <img src={OAIconBlue} alt="" className="size-full object-cover" />

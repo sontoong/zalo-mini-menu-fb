@@ -1,2 +1,1 @@
-export { default as OrderHistoryPageFilters } from "./filters";
-export { default as OrderHistoryOrderList } from "./order-list";
+export { default as OrderHistoryPageTabs } from "./tabs";

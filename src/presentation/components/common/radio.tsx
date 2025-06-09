@@ -77,7 +77,6 @@ type RadioGroupProps<RecordType> = {
 } & OriginRadioGroupProps;
 
 type RadioButtonGroupProps<RecordType> = {
-  defaultActiveIndex?: number; //starts at 0
   items: RecordType[]; //an array of object ([{name: "abc"}, {name: "abcd"}])
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
   render: (item?: RecordType) => React.ReactNode; //specify how to render, eg: render={(item) => <div>{item?.name}</div>}

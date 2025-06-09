@@ -21,11 +21,15 @@ import SchedulePage from "./presentation/pages/SchedulePage";
 import UserPage from "./presentation/pages/UserPage";
 import OrderListPage from "./presentation/pages/OrderListPage";
 import OrderDetailsPage from "./presentation/pages/OrderDetailsPage";
-import RatingPage from "./presentation/pages/RatingPage";
+import RatePage from "./presentation/pages/RatePage";
 import OrderHistoryPage from "./presentation/pages/OrderHistoryPage";
 import AccountInformationPage from "./presentation/pages/AccountInformationPage";
 import StoreLocationPage from "./presentation/pages/StoreLocationPage";
 import RatingsPage from "./presentation/pages/RatingsPage";
+import UserLocationListPage from "./presentation/pages/UserLocationListPage";
+import UserLocationFormPage from "./presentation/pages/UserLocationFormPage";
+import UserCurrentLocationPage from "./presentation/pages/UserCurrentLocationPage";
+import TableOrderDetailsPage from "./presentation/pages/TableOrderDetailsPage";
 
 import "dayjs/locale/vi";
 import timezone from "dayjs/plugin/timezone";
@@ -89,7 +93,7 @@ const router = createBrowserRouter(
         },
         {
           path: "/rate",
-          element: <RatingPage />,
+          element: <RatePage />,
         },
         {
           path: "/ratings",
@@ -106,6 +110,22 @@ const router = createBrowserRouter(
         {
           path: "/store-location",
           element: <StoreLocationPage />,
+        },
+        {
+          path: "/user-location-list",
+          element: <UserLocationListPage />,
+        },
+        {
+          path: "/user-location-form",
+          element: <UserLocationFormPage />,
+        },
+        {
+          path: "/user-location-map",
+          element: <UserCurrentLocationPage />,
+        },
+        {
+          path: "/table-orders/:orderId",
+          element: <TableOrderDetailsPage />,
         },
       ],
     },

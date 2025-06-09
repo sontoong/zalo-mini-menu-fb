@@ -5,37 +5,42 @@ import { Footer } from "./footer";
 import { useNavigate } from "react-router-dom";
 import { Summary } from "./summary";
 import { PaymentMethod } from "./payment-method";
-import { TimePicker } from "./time-picker";
 import dayjs from "dayjs";
-import { Progress } from "./progress";
-import { orderTypes } from "../../constants/orderTypes";
+import { OrderStatus } from "./order-status";
+import { orderStatus } from "../../constants/orderStatus";
+import { OrderMethod } from "./order-method";
 
 const OrderForm: FC<Props> = ({ order }) => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
-  const type = order.type.label as keyof typeof orderTypes;
+  const status = order.status?.key as keyof typeof orderStatus;
+  const orderMethod = order.method;
 
   function onFormFinish() {
-    switch (type) {
-      case "Đơn nháp":
+    switch (status) {
+      case orderStatus["1"].key:
         navigate("/order-success");
         break;
 
-      case "Chờ thực hiện":
+      case orderStatus["2"].key:
         navigate("/rate", { state: order });
         break;
 
-      case "Chờ xác nhận":
+      case orderStatus["3"].key:
         navigate("/rate", { state: order });
         break;
 
-      case "Đã hoàn thành":
+      case orderStatus["4"].key:
         navigate("/rate", { state: order });
         break;
 
-      case "Đã hủy":
+      case orderStatus["5"].key:
         navigate("/order");
+        break;
+
+      case orderStatus["6"].key:
+        navigate("/rate", { state: order });
         break;
 
       default:
@@ -49,18 +54,16 @@ const OrderForm: FC<Props> = ({ order }) => {
 
   return (
     <Form form={form} initialValues={initialValues} onFinish={onFormFinish}>
-      <div className="flex flex-col gap-[20px] pb-[150px] pt-[12px]">
+      <div className="flex flex-col gap-[20px] pt-[12px]">
         <div className="flex flex-col gap-[12px]">
-          <Progress type={type} />
-          <Form.Item name="time" noStyle>
-            <TimePicker />
-          </Form.Item>
+          <OrderStatus status={status} />
+          <OrderMethod orderMethod={orderMethod} />
+          <Divider className="m-0 border-[2px] border-stroke1a" />
         </div>
-        <Divider className="border-stroke1a m-0 border-[2px]" />
         <Summary />
-        <Divider className="border-stroke1a m-0 border-[2px]" />
+        <Divider className="m-0 border-[2px] border-stroke1a" />
         <PaymentMethod />
-        <Footer type={type} onSubmit={form.submit} />
+        <Footer status={status} onSubmit={form.submit} />
       </div>
     </Form>
   );

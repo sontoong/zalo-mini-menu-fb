@@ -77,8 +77,24 @@
 // Tab
 .custom-tabs.ant-tabs {
   .ant-tabs-nav {
-    .ant-tabs-tab {
-      color: #6e876e;
+    .ant-tabs-nav-list {
+      width: 100%;
+      justify-content: center;
+      .ant-tabs-tab {
+        color: #6e7987;
+        flex: 1 1 0%;
+        justify-content: center;
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+    }
+  }
+  .ant-tabs-content-holder {
+    .ant-tabs-content {
+      height: 100%;
+      .ant-tabs-tabpane {
+        height: 100%;
+      }
     }
   }
 }

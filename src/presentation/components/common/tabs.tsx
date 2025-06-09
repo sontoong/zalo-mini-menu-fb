@@ -16,7 +16,7 @@ export const Tabs: FC<Props> = ({ selectColor = "#1677ff", ...rest }) => {
         },
       }}
     >
-      <OriginalTabs className="custom-tabs" {...rest} />
+      <OriginalTabs {...rest} />
     </ConfigProvider>
   );
 };

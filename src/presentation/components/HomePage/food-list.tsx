@@ -1,25 +1,25 @@
 import React, { FC } from "react";
-import ServiceImg1 from "../../static/service-1.jpg";
-import ServiceImg2 from "../../static/service-2.jpg";
+import FoodImg1 from "../../static/food-1.jpg";
+import FoodImg2 from "../../static/food-2.jpg";
 import { formatCurrency } from "../../utils/helpers";
-import { ServicePopup } from "./service-popup";
+import { FoodPopup } from "./food-popup";
 
-const ServiceList = () => {
+const FoodList = () => {
   return (
-    <div className="flex flex-col gap-[12px] px-[16px]">
-      <div className="text-2xl font-medium">Dịch vụ tiêu biểu</div>
+    <div className="flex flex-col gap-[12px] px-[16px] pt-[38px]">
+      <div className="text-2xl font-medium">Món ăn tiêu biểu</div>
       <div className="grid grid-cols-2 gap-x-[24px] gap-y-[12px]">
         {services.map((item, index) => (
-          <ServicePopup key={index}>
-            {({ open }) => <ServiceItem service={item} onClick={open} />}
-          </ServicePopup>
+          <FoodPopup key={index}>
+            {({ open }) => <FoodItem service={item} onClick={open} />}
+          </FoodPopup>
         ))}
       </div>
     </div>
   );
 };
 
-const ServiceItem: FC<ServiceItemProps> = ({ service, onClick }) => {
+const FoodItem: FC<any> = ({ service, onClick }) => {
   return (
     <div className="flex flex-col justify-center gap-[12px]" onClick={onClick}>
       <div className="relative aspect-square w-full overflow-hidden rounded-[24px]">
@@ -43,40 +43,35 @@ const ServiceItem: FC<ServiceItemProps> = ({ service, onClick }) => {
   );
 };
 
-export default ServiceList;
-
-type ServiceItemProps = {
-  service: any;
-  onClick: () => void;
-};
+export default FoodList;
 
 const services = [
   {
     id: 1,
-    name: "Cắt thiết kế",
+    name: "Hamburger bò",
     price: 50000,
     priceSale: 150000,
-    image: ServiceImg1,
+    image: FoodImg1,
   },
   {
     id: 2,
-    name: "Uốn tóc",
+    name: "Hamburger",
     price: 50000,
     priceSale: 150000,
-    image: ServiceImg2,
+    image: FoodImg2,
   },
   {
     id: 3,
-    name: "Duỗi tóc",
+    name: "Mì Ý",
     price: 150000,
     priceSale: 50000,
-    image: ServiceImg2,
+    image: FoodImg2,
   },
   {
     id: 4,
-    name: "Nhuộm tóc",
+    name: "Bánh trứng",
     price: 150000,
     priceSale: 50000,
-    image: ServiceImg2,
+    image: FoodImg2,
   },
 ];

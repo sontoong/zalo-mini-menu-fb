@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Tag } from "../common/tag";
 import { Divider } from "antd";
 import Customer1 from "../../static/customer-1.jpg";
-import Service1 from "../../static/high-rating-service.jpg";
+import Food2 from "../../static/food-2.jpg";
 import Rate from "../common/rate";
 import { Button } from "../common/button";
 import { Select } from "../common/select";
@@ -62,7 +62,7 @@ const Feedbacks = () => {
                 <div className="flex items-center gap-[8px] rounded-[8px] bg-neutral2 p-[8px]">
                   <div className="size-[40px] overflow-hidden rounded-[4px]">
                     <img
-                      src={Service1}
+                      src={Food2}
                       alt=""
                       className="size-full object-cover"
                     />

@@ -4,7 +4,7 @@ import {
   HomePageCartButton,
   HomePageHeadButtons,
   HomePageHeader,
-  HomePageServiceList,
+  HomePageFoodList,
 } from "../components/HomePage";
 import { Footer } from "../components/common/footer";
 import Promotion from "../components/HomePage/promotion";
@@ -14,7 +14,7 @@ const HomePage: FC = () => {
     <Page className="page-content relative flex flex-1 flex-col bg-[#fafbff]">
       <HomePageHeader />
       <div className="homepage-scroll-container flex-1 overflow-auto bg-white">
-        <div className="relative h-[240px] w-full">
+        <div className="relative h-[250px] w-full">
           <div
             className="pointer-events-none absolute inset-0 z-10"
             style={{
@@ -28,7 +28,7 @@ const HomePage: FC = () => {
           <div className="absolute inset-x-0 top-0 z-20 -translate-y-1/2">
             <HomePageHeadButtons />
           </div>
-          <HomePageServiceList />
+          <HomePageFoodList />
         </div>
         <HomePageCartButton />
       </div>

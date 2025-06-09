@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { createPortal } from "react-dom";
 import { Sheet } from "zmp-ui";
 import CloseIcon from "../../static/close-icon.png";
-import TimerIcon from "../../static/timer.png";
+import FoodImg from "../../static/food-1.jpg";
 import { formatCurrency } from "../../utils/helpers";
 import { Checkbox, Divider, Input } from "antd";
 import { Form } from "../common/form";
@@ -12,13 +12,12 @@ import AddIcon from "../../static/add-icon.png";
 import { Radio } from "../common/radio";
 import { useNavigate } from "react-router-dom";
 
-const ServicePopup: FC<Props> = ({ children }) => {
+const FoodPopup: FC<Props> = ({ children }) => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [visible, setVisible] = useState<boolean>(false);
 
   const onFinish = (value: any) => {
-    console.log(value);
     navigate("/order");
   };
 
@@ -73,38 +72,28 @@ const ServicePopup: FC<Props> = ({ children }) => {
             <div className="flex flex-col gap-[20px] overflow-y-auto px-[16px] pb-[150px]">
               {/* Brief */}
               <div className="flex flex-col gap-[12px]">
-                <div className="flex justify-between">
-                  <div className="flex flex-col gap-[4px]">
-                    <div className="text-xl font-medium">Nhuộm tóc</div>
-                    <div className="flex items-center gap-[8px]">
-                      <div className="text-sm font-normal text-gray7">Nail</div>
-                      <Divider type="vertical" />
-                      <div className="flex gap-[4px]">
-                        <div className="size-[18px]">
-                          <img
-                            src={TimerIcon}
-                            alt=""
-                            className="size-full object-cover"
-                          />
-                        </div>
-                        <div className="text-sm font-normal text-gray7">
-                          60 phút
-                        </div>
+                <div className="flex flex-col gap-[4px]">
+                  <div className="flex justify-between">
+                    <div className="text-xl font-medium">Hamburger bò</div>
+                    <div className="flex flex-col items-end justify-between">
+                      <div className="text-xl font-medium">
+                        {formatCurrency(120000)}
+                      </div>
+                      <div className="text-[15px] font-normal text-gray6 line-through">
+                        {formatCurrency(120000)}
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col items-end justify-between">
-                    <div className="text-xl font-medium">
-                      {formatCurrency(120000)}
-                    </div>
-                    <div className="text-[15px] font-normal text-gray6 line-through">
-                      {formatCurrency(120000)}
-                    </div>
+                  <div className="text-sm font-normal text-gray9">
+                    Hamburger gồm bò, xà lách, phô mai mỏng dai
                   </div>
                 </div>
-                <div className="text-sm font-normal text-gray9">
-                  Nhuộm tóc đa dạng màu sắc, bền màu, với thuốc gội chất lượng
-                  cao.
+                <div className="h-[140px] overflow-hidden rounded-[12px]">
+                  <img
+                    src={FoodImg}
+                    alt=""
+                    className="size-full object-cover"
+                  />
                 </div>
               </div>
               {/* Options */}
@@ -248,44 +237,36 @@ const ServicePopup: FC<Props> = ({ children }) => {
   );
 };
 
-export { ServicePopup };
+export { FoodPopup };
 
 type Props = {
   children: (methods: { open: () => void }) => React.ReactNode;
 };
 
 const options = {
-  title: "Dầu gội",
+  title: "Topping thêm",
   options: [
     {
-      label: { title: "Dầu gội Pantin", price: 40000 },
+      label: { title: "Phô mai", price: 40000 },
       value: "1",
     },
     {
-      label: { title: "Dầu gội phục hồi", price: 40000 },
+      label: { title: "Xà lách", price: 40000 },
       value: "2",
-    },
-    {
-      label: { title: "Dầu gội Loreal", price: 40000 },
-      value: "3",
     },
   ],
 };
 
 const options2 = {
-  title: "Xông tinh dầu",
+  title: "Độ chín",
   options: [
     {
-      label: { title: "Loại 1", price: 40000 },
+      label: { title: "Chín kĩ", price: 40000 },
       value: "1",
     },
     {
-      label: { title: "Loại 2", price: 40000 },
+      label: { title: "Chín tới", price: 40000 },
       value: "2",
-    },
-    {
-      label: { title: "Loại 3", price: 40000 },
-      value: "3",
     },
   ],
 };

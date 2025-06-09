@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { orderTypes } from "../../constants/orderTypes";
+import { orderStatus } from "../../constants/orderStatus";
 import { Divider } from "antd";
 import ClockIcon from "../../static/clock.png";
 import OrderWaiting from "../../static/order-waiting.png";
@@ -10,12 +10,14 @@ import ChevronDown from "../../static/chevron-down.png";
 import NoteText from "../../static/note-text.png";
 import Rate from "../common/rate";
 
-export const Progress: FC<{ type: keyof typeof orderTypes }> = ({ type }) => {
-  if (type === "Đơn nháp") {
+export const OrderStatus: FC<{ status: keyof typeof orderStatus }> = ({
+  status,
+}) => {
+  if (status === orderStatus["1"].key) {
     return null;
   }
 
-  if (type === "Chờ thực hiện") {
+  if (status === orderStatus["2"].key) {
     return (
       <>
         <div className="flex items-center justify-between px-[16px]">
@@ -40,12 +42,12 @@ export const Progress: FC<{ type: keyof typeof orderTypes }> = ({ type }) => {
             <img src={OrderWaiting} alt="" className="size-full object-cover" />
           </div>
         </div>
-        <Divider className="border-stroke1a m-0 border-[2px]" />
+        <Divider className="m-0 border-[2px] border-stroke1a" />
       </>
     );
   }
 
-  if (type === "Chờ xác nhận") {
+  if (status === orderStatus["3"].key) {
     return (
       <>
         <div className="flex items-center justify-between px-[16px]">
@@ -74,12 +76,12 @@ export const Progress: FC<{ type: keyof typeof orderTypes }> = ({ type }) => {
             />
           </div>
         </div>
-        <Divider className="border-stroke1a m-0 border-[2px]" />
+        <Divider className="m-0 border-[2px] border-stroke1a" />
       </>
     );
   }
 
-  if (type === "Đã hoàn thành") {
+  if (status === orderStatus["4"].key) {
     return (
       <>
         <div className="flex items-center justify-between px-[16px]">
@@ -133,12 +135,12 @@ export const Progress: FC<{ type: keyof typeof orderTypes }> = ({ type }) => {
             <img src={ChevronDown} alt="" className="size-full object-cover" />
           </div>
         </div>
-        <Divider className="border-stroke1a m-0 border-[2px]" />
+        <Divider className="m-0 border-[2px] border-stroke1a" />
       </>
     );
   }
 
-  if (type === "Đã hủy") {
+  if (status === orderStatus["5"].key) {
     return (
       <>
         <div className="flex items-center justify-between px-[16px]">
@@ -183,7 +185,41 @@ export const Progress: FC<{ type: keyof typeof orderTypes }> = ({ type }) => {
             <img src={ChevronDown} alt="" className="size-full object-cover" />
           </div>
         </div>
-        <Divider className="border-stroke1a m-0 border-[2px]" />
+        <Divider className="m-0 border-[2px] border-stroke1a" />
+      </>
+    );
+  }
+
+  if (status === orderStatus["6"].key) {
+    return (
+      <>
+        <div className="flex items-center justify-between px-[16px]">
+          <div className="flex flex-col gap-[12px]">
+            <div className="text-lg font-medium text-alert4">
+              Đang chờ đến lấy
+            </div>
+            <div className="flex items-center gap-[4px]">
+              <div className="size-[18px]">
+                <img
+                  src={ClockIcon}
+                  alt=""
+                  className="size-full object-cover"
+                />
+              </div>
+              <div className="text-sm font-normal text-neutral6">
+                Đã đặt: 06:00, 12/05/2025
+              </div>
+            </div>
+          </div>
+          <div className="size-[48px]">
+            <img
+              src={OrderConfirming}
+              alt=""
+              className="size-full object-cover"
+            />
+          </div>
+        </div>
+        <Divider className="m-0 border-[2px] border-stroke1a" />
       </>
     );
   }

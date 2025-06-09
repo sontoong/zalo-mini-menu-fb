@@ -20,7 +20,7 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export { Filters };
 
 const types = [
   { label: "Tất cả" },

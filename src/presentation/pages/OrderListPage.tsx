@@ -2,10 +2,7 @@ import React from "react";
 import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../static/arrow-left-blue.png";
 import { Footer } from "../components/common/footer";
-import {
-  OrderListPageFilters,
-  OrderListPageOrderList,
-} from "../components/OrderListPage";
+import { OrderListPageTabs } from "../components/OrderListPage";
 import { Button } from "../components/common/button";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +26,7 @@ const OrderListPage = () => {
             </div>
           ) as unknown as string
         }
-        className="topbar h-auto flex-none !bg-surface pl-4"
+        className="topbar no-border h-auto flex-none !bg-surface pl-4"
         backIcon={
           <div className="absolute inset-1/2 flex size-[40px] -translate-x-1/3 -translate-y-1/2 items-center justify-center rounded-full bg-surface">
             <img src={ArrowLeftIcon} />
@@ -37,10 +34,7 @@ const OrderListPage = () => {
         }
       />
       <div className="flex-1 overflow-auto">
-        <div className="flex flex-col gap-[12px] bg-surface px-[16px] py-[20px]">
-          <OrderListPageFilters />
-          <OrderListPageOrderList />
-        </div>
+        <OrderListPageTabs />
       </div>
       <Footer />
     </Page>

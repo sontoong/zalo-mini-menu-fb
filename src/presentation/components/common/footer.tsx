@@ -31,16 +31,6 @@ const NAV_ITEMS = [
       ),
   },
   {
-    name: "Đặt lịch",
-    path: "/schedule",
-    icon: ({ active }: { active: boolean }) =>
-      active ? (
-        <img src={CalendarIcon} className="size-[20px]" />
-      ) : (
-        <img src={CalendarIcon} className="size-[20px]" />
-      ),
-  },
-  {
     name: "Chat",
     path: "/",
     icon: ({ active }: { active: boolean }) =>

@@ -3,7 +3,7 @@ import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../static/arrow-left-blue.png";
 import { useLocation } from "react-router-dom";
 import { OrderDetailsPageOrderForm } from "../components/OrderDetailsPage";
-import { orderTypes } from "../constants/orderTypes";
+import { orderStatus } from "../constants/orderStatus";
 
 const OrderDetailsPage = () => {
   const { state } = useLocation();
@@ -14,10 +14,10 @@ const OrderDetailsPage = () => {
       <Header
         title={
           (
-            <div className="relative">
-              <div className="absolute left-[35%] top-1/2 -translate-y-1/2 text-lg font-medium">
-                {order.type.label === orderTypes["Đơn nháp"].label
-                  ? order.type.label
+            <div className="flex w-[calc(100%-32px)] justify-center">
+              <div className="text-lg font-medium">
+                {order.status?.key === orderStatus["1"].key
+                  ? order.status.label
                   : `Đơn hàng #${order.id}`}
               </div>
             </div>

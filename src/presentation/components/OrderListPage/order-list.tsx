@@ -1,11 +1,11 @@
 import { Divider } from "antd";
-import React from "react";
-import ServiceImg from "../../static/service.jpg";
+import React, { FC } from "react";
+import FoodImg from "../../static/food-1.jpg";
 import { formatCurrency } from "../../utils/helpers";
-import { orderTypes } from "../../constants/orderTypes";
 import { useNavigate } from "react-router-dom";
+import { orderMethods } from "../../constants/orderMethods";
 
-const OrderList = () => {
+const OrderList: FC<{ orders: any[] }> = ({ orders }) => {
   return (
     <div className="flex flex-col gap-[14px]">
       {orders.map((order, index) => (
@@ -18,44 +18,54 @@ const OrderList = () => {
 const OrderListItem = ({ order }) => {
   const navigate = useNavigate();
 
+  const goTo = () => {
+    if (order.method === orderMethods["1"].key) {
+      navigate(`/table-orders/${order.id}`, { state: order });
+    } else {
+      navigate(`/orders/${order.id}`, { state: order });
+    }
+  };
+
   return (
     <div
       className="flex flex-col gap-[12px] rounded-[12px] bg-white p-[12px] shadow-md"
-      onClick={() => navigate(`/orders/${order.id}`, { state: order })}
+      onClick={goTo}
     >
-      <div className="flex justify-between">
+      <div className="flex h-[22px] justify-between">
+        {/* Order id */}
         <div className="text-xs font-normal">Đơn #{order.id}</div>
-        <div
-          className="rounded-[20px] px-[6px] py-[4px]"
-          style={{ background: order.type.bgColor }}
-        >
+        {/* Tag */}
+        {order.status ? (
           <div
-            className="text-xs font-medium"
-            style={{ color: order.type.color }}
+            className="flex h-full items-center rounded-[20px] px-[6px]"
+            style={{ background: order.status.bgColor }}
           >
-            {order.type.label}
+            <div
+              className="text-xs font-medium"
+              style={{ color: order.status.color }}
+            >
+              {order.status.label}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
       <div className="flex flex-col gap-[4px]">
-        {order.services.map((service, index) => (
+        {order.items.map((item, index) => (
           <React.Fragment key={index}>
             <div className="flex gap-[8px] p-[6px]">
               <div className="size-[32px] overflow-hidden rounded-[3.2px]">
-                <img
-                  src={ServiceImg}
-                  alt=""
-                  className="size-full object-cover"
-                />
+                <img src={FoodImg} alt="" className="size-full object-cover" />
               </div>
               <div className="flex flex-col gap-[4px]">
-                <div className="text-xs font-normal">1 x {service.name}</div>
+                <div className="text-xs font-normal">
+                  {item.quantity} x {item.name}
+                </div>
                 <div className="text-xs font-normal text-gray8">
-                  {service.product}
+                  {item.notes}
                 </div>
               </div>
             </div>
-            {index != order.services.length - 1 && <Divider className="m-0" />}
+            {index != order.items.length - 1 && <Divider className="m-0" />}
           </React.Fragment>
         ))}
       </div>
@@ -72,57 +82,4 @@ const OrderListItem = ({ order }) => {
   );
 };
 
-export default OrderList;
-
-export const orders = [
-  {
-    id: "123434",
-    type: orderTypes["Đơn nháp"],
-    services: [
-      { name: "Cắt tóc", product: "Dầu gội Pantin, Loại 1" },
-      { name: "Duỗi tóc", product: "Dầu gội Pantin, Loại 1" },
-    ],
-    time: "12:00, 04/11/2024",
-    totalprice: 120000,
-  },
-  {
-    id: "123434",
-    type: orderTypes["Chờ thực hiện"],
-    services: [
-      { name: "Cắt tóc", product: "Dầu gội Pantin, Loại 1" },
-      { name: "Duỗi tóc", product: "Dầu gội Pantin, Loại 1" },
-    ],
-    time: "12:00, 04/11/2024",
-    totalprice: 120000,
-  },
-  {
-    id: "123434",
-    type: orderTypes["Chờ xác nhận"],
-    services: [
-      { name: "Cắt tóc", product: "Dầu gội Pantin, Loại 1" },
-      { name: "Duỗi tóc", product: "Dầu gội Pantin, Loại 1" },
-    ],
-    time: "12:00, 04/11/2024",
-    totalprice: 120000,
-  },
-  {
-    id: "123434",
-    type: orderTypes["Đã hoàn thành"],
-    services: [
-      { name: "Cắt tóc", product: "Dầu gội Pantin, Loại 1" },
-      { name: "Duỗi tóc", product: "Dầu gội Pantin, Loại 1" },
-    ],
-    time: "12:00, 04/11/2024",
-    totalprice: 120000,
-  },
-  {
-    id: "123434",
-    type: orderTypes["Đã hủy"],
-    services: [
-      { name: "Cắt tóc", product: "Dầu gội Pantin, Loại 1" },
-      { name: "Duỗi tóc", product: "Dầu gội Pantin, Loại 1" },
-    ],
-    time: "12:00, 04/11/2024",
-    totalprice: 120000,
-  },
-];
+export { OrderList };

@@ -273,9 +273,9 @@ const CartOpenButton = () => {
             <div className="flex size-[32px] items-center justify-center rounded-full bg-infor1">
               <div className="text-base font-semibold text-infor4">2</div>
             </div>
-            <div className="text-[15px] font-medium">dịch vụ</div>
+            <div className="text-[15px] font-medium">món</div>
           </div>
-          <div className="flex items-center gap-[10px] rounded-[8px] bg-[#00BFFF] p-[8px]">
+          <div className="flex h-[36px] items-center gap-[10px] rounded-[8px] bg-[#00BFFF] px-[8px]">
             <div className="size-[20px]">
               <img src={BagIcon} className="size-full" />
             </div>
@@ -327,9 +327,7 @@ const RemoveItemModal: FC<Props & { onAccept: () => void; item: any }> = ({
         >
           <div className="flex flex-col gap-[12px]">
             <div className="text-center">
-              <span className="text-sm font-normal text-gray8">
-                1x Dịch vụ{" "}
-              </span>
+              <span className="text-sm font-normal text-gray8">1x </span>
               <span className="text-sm font-normal">{item.title}</span>
             </div>
             <div className="flex gap-[10px]">
@@ -360,7 +358,7 @@ type Props = {
 
 const data = [
   {
-    title: "Nhuộm tóc",
+    title: "Hamburger bò",
     product: "Dầu gội Pantin, Loại 1",
     price: 50000,
     quantity: 2,

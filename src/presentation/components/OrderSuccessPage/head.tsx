@@ -13,32 +13,28 @@ const Head: FC<Props> = (props) => {
           <img src={CheckMarkImg} alt="" className="size-full object-cover" />
         </div>
         {/* Text */}
-        <div className="flex flex-col gap-[8px]">
+        <div className="flex flex-col items-center gap-[8px]">
           <div className="text-center text-xl font-medium text-primary6">
             Đơn đã đặt thành công
           </div>
-          <div className="text-balance text-center text-sm font-normal text-gray8">
-            Vui lòng chờ Kiki Salon sắp xếp lịch hẹn. Tin nhắn xác nhận lịch sẽ
-            gửi qua <span className="font-medium text-gray9">ZNS.</span>
-          </div>
-        </div>
-        {/* Button */}
-        <Button
-          text={
-            <div className="flex items-center gap-[4px]">
-              <div className="size-[16px]">
-                <img
-                  src={MessageIcon}
-                  alt=""
-                  className="size-full object-cover"
-                />
+          {/* Button */}
+          <Button
+            text={
+              <div className="flex items-center gap-[4px]">
+                <div className="size-[16px]">
+                  <img
+                    src={MessageIcon}
+                    alt=""
+                    className="size-full object-cover"
+                  />
+                </div>
+                <div className="text-[12px] font-normal">Liên hệ</div>
               </div>
-              <div className="text-[12px] font-normal">Liên hệ</div>
-            </div>
-          }
-          className="rounded-[100px] bg-white px-[8px] py-[4px]"
-          style={{ boxShadow: "0px 2px 8px 0px #0000001A" }}
-        />
+            }
+            className="w-fit rounded-[100px] bg-white px-[8px] py-[4px]"
+            style={{ boxShadow: "0px 2px 8px 0px #0000001A" }}
+          />
+        </div>
       </div>
     );
   }

@@ -13,16 +13,43 @@ const OrderDetails: FC<Props> = (props) => {
         <div className="text-xs font-normal">12324</div>
       </div>
       <Divider className="m-0" />
-      <div className="flex items-start gap-[24px]">
-        <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
-          Trạng thái
-        </div>
+      <>
         {props.success ? (
-          <div className="text-success4 text-xs font-medium">Đã thanh toán</div>
+          <>
+            <div className="flex items-start gap-[24px]">
+              <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
+                Hình thức
+              </div>
+              <div className="text-xs font-normal">Giao ngay (25 - 40 p)</div>
+            </div>
+            <Divider className="m-0" />
+            <div className="flex items-start gap-[24px]">
+              <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
+                Trạng thái
+              </div>
+              <div className="text-xs font-medium text-black">
+                Chưa thanh toán
+              </div>
+            </div>
+          </>
         ) : (
-          <div className="text-xs font-medium text-error3">Đã huỷ đơn</div>
+          <>
+            <div className="flex items-start gap-[24px]">
+              <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
+                Trạng thái
+              </div>
+              <div className="text-xs font-medium text-error3">Đã huỷ đơn</div>
+            </div>
+            <Divider className="m-0" />
+            <div className="flex items-start gap-[24px]">
+              <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
+                Hình thức
+              </div>
+              <div className="text-xs font-normal">Đến lấy ngay</div>
+            </div>
+          </>
         )}
-      </div>
+      </>
       <Divider className="m-0" />
       <div className="flex items-start gap-[24px]">
         <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
@@ -35,9 +62,9 @@ const OrderDetails: FC<Props> = (props) => {
       <Divider className="m-0" />
       <div className="flex items-start gap-[24px]">
         <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
-          Dịch vụ
+          Món
         </div>
-        <div className="text-xs font-normal">1x Uốn tóc 2x Nhuộm tóc</div>
+        <div className="text-xs font-normal">1 x Hamburger bò 2 x Mì Ý</div>
       </div>
       <Divider className="m-0" />
       <div className="flex items-start gap-[24px]">
@@ -55,13 +82,6 @@ const OrderDetails: FC<Props> = (props) => {
           Tổng tiền
         </div>
         <div className="text-xs font-normal">{formatCurrency(240000)}</div>
-      </div>
-      <Divider className="m-0" />
-      <div className="flex items-start gap-[24px]">
-        <div className="w-[80px] shrink-0 text-sm font-normal text-gray7">
-          Đặt lịch
-        </div>
-        <div className="text-xs font-normal text-gray5">_ _</div>
       </div>
       <Divider className="m-0" />
       <div className="flex items-start gap-[24px]">
@@ -84,7 +104,7 @@ const OrderDetails: FC<Props> = (props) => {
         <div className="w-[85px] shrink-0 text-sm font-normal text-gray7">
           Thời gian thanh toán
         </div>
-        <div className="text-xs font-normal">12/04/2025</div>
+        <div className="text-xs font-normal">_ _</div>
       </div>
     </div>
   );

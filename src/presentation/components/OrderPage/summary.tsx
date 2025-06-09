@@ -7,7 +7,7 @@ import EditIcon from "../../static/edit-icon.png";
 export const Summary = () => {
   return (
     <div className="flex flex-col gap-[8px] px-[16px]">
-      <div className="text-[15px] font-medium">Danh sách dịch vụ</div>
+      <div className="text-[15px] font-medium">Danh sách món</div>
       <div className="flex flex-col gap-[12px]">
         <div className="flex flex-col gap-[12px]">
           {data.map((service, index) => (
@@ -79,16 +79,16 @@ const SummaryItem: FC<{ service: any }> = ({ service }) => {
 
 const data = [
   {
-    title: "Uốn tóc",
-    product: "Dầu gội Pantin, Loại 1",
+    title: "Hamburger bò",
+    product: "Phô mai, chín kĩ",
     price: 125000,
     quantity: 1,
     notes:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    title: "Nhuộm tóc",
-    product: "Dầu gội Pantin, Loại 1",
+    title: "Mì ý",
+    product: "Sốt cà chua thêm",
     price: 250000,
     quantity: 2,
     notes:
